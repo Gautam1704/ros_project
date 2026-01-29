@@ -1,0 +1,24 @@
+[0.499s] Invoking command in '/home/gautam/ros_project/src/ros_project': PYTHONPATH=/home/gautam/ros_project/build/ros_project/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/gautam/ros_project/install/ros_project/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ros_project build --build-base /home/gautam/ros_project/build/ros_project/build install --record /home/gautam/ros_project/build/ros_project/install.log --single-version-externally-managed install_data
+[0.652s] running egg_info
+[0.660s] writing ../../build/ros_project/ros_project.egg-info/PKG-INFO
+[0.660s] writing dependency_links to ../../build/ros_project/ros_project.egg-info/dependency_links.txt
+[0.660s] writing requirements to ../../build/ros_project/ros_project.egg-info/requires.txt
+[0.660s] writing top-level names to ../../build/ros_project/ros_project.egg-info/top_level.txt
+[0.668s] reading manifest file '../../build/ros_project/ros_project.egg-info/SOURCES.txt'
+[0.669s] writing manifest file '../../build/ros_project/ros_project.egg-info/SOURCES.txt'
+[0.669s] running build
+[0.669s] running install
+[0.672s] running install_data
+[0.672s] copying resource/ros_project -> /home/gautam/ros_project/install/ros_project/share/ament_index/resource_index/packages
+[0.672s] copying package.xml -> /home/gautam/ros_project/install/ros_project/share/ros_project
+[0.672s] copying launch/gazebo.launch.py -> /home/gautam/ros_project/install/ros_project/share/ros_project/launch
+[0.672s] copying launch/rsp.launch.py -> /home/gautam/ros_project/install/ros_project/share/ros_project/launch
+[0.672s] copying description/robot.urdf.xacro -> /home/gautam/ros_project/install/ros_project/share/ros_project/description
+[0.672s] copying description/robot_core.xacro -> /home/gautam/ros_project/install/ros_project/share/ros_project/description
+[0.673s] copying description/inertial_macros.xacro -> /home/gautam/ros_project/install/ros_project/share/ros_project/description
+[0.673s] running install_egg_info
+[0.689s] removing '/home/gautam/ros_project/install/ros_project/lib/python3.10/site-packages/ros_project-0.0.0-py3.10.egg-info' (and everything under it)
+[0.689s] Copying ../../build/ros_project/ros_project.egg-info to /home/gautam/ros_project/install/ros_project/lib/python3.10/site-packages/ros_project-0.0.0-py3.10.egg-info
+[0.690s] running install_scripts
+[0.767s] writing list of installed files to '/home/gautam/ros_project/build/ros_project/install.log'
+[0.783s] Invoked command in '/home/gautam/ros_project/src/ros_project' returned '0': PYTHONPATH=/home/gautam/ros_project/build/ros_project/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/gautam/ros_project/install/ros_project/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ros_project build --build-base /home/gautam/ros_project/build/ros_project/build install --record /home/gautam/ros_project/build/ros_project/install.log --single-version-externally-managed install_data
