@@ -4,6 +4,7 @@
     <!-- Example link -->
    
     <xacro:include filename="$(find ros_project)/description/robot_core.xacro"/>
+    <xacro:include filename="$(find ros_project)/description/lidar.xacro"/>
 
 
 </robot>

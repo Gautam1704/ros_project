@@ -1,0 +1,15 @@
+build/
+install/
+log/
+# Python
+__pycache__/
+*.pyc
+
+.vscode/
+*.db
+*.pgm
+*.yaml
+*.posegraph
+*.rvizbuild/
+install/
+log/
