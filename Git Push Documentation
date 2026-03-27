@@ -1,0 +1,44 @@
+How to Push a ROS Directory to Github?
+
+Command 1 -> git init
+COmmand 2 -> git status (# to check what git is tracking)
+
+Now there are some auto generated files like build log install that are not to be uploaded on github, so have to add those in gitignore
+
+Command 3 -> nano .gitignore
+Add these in that file
+build/
+install/
+log/
+.vscode/
+*.db
+
+If even after adding in gitignore its creating a issue force remove that
+Command 4 -> git rm -r --cached -f src/.vscode
+
+Command 5 -> git add .
+COmmand 6 -> git commit -m "Initial clean ROS2 project (removed build/install/log/vscode)"
+
+Now will have to link to our github account
+
+Command 7 -> git remote add origin https://github.com/Gautam1704/ros_project.git
+
+My github repo already had README and license so have to link it with my local repo git
+
+Command 8 ->git pull origin main --allow-unrelated-histories
+Press ESC
+Type :wq
+Press Enter
+
+Final Push
+Command 9 -> git push -u origin main
+
+If giving error of file size greater the gitignore has not successfully executed forcefully remove something
+git rm -r --cached -f src/.vscode
+git add .
+git commit -m "Removed large files"
+
+Then push
+git push -u origin main
+
+
