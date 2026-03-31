@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<robot name="slam_lidar_midplate_front" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+<robot name="slam" xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
 <material name="silver">
   <color rgba="0.700 0.700 0.700 1.000"/>
