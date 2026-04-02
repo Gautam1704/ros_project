@@ -13,7 +13,7 @@ def generate_launch_description():
     pkg_ros_gz_rbot = get_package_share_directory('ros_project')
 
 
-    robot_description_file = os.path.join(pkg_ros_gz_rbot, 'urdf', 'slam_lidar_midplate_front.xacro')
+    robot_description_file = os.path.join(pkg_ros_gz_rbot, 'urdf', 'slam_lidar_midplate_mid_with_imu.xacro')
     ros_gz_bridge_config = os.path.join(pkg_ros_gz_rbot, 'config', 'ros_gz_bridge_gazebo.yaml')
     
     robot_description_config = xacro.process_file(robot_description_file)
@@ -48,7 +48,8 @@ def generate_launch_description():
     arguments=[
         "-topic", "/robot_description",
         "-name", "slam",
-        "-allow_renaming", "true",   # 👈 change this
+        "-allow_renaming", "true",  
+        "-z", "0.1", # 👈 change this
             ],
             output='screen'#both robot were getting spawned together so added this to remove existing model before spawn
         )]
@@ -59,6 +60,7 @@ def generate_launch_description():
         executable='parameter_bridge',
         parameters=[{'config_file': ros_gz_bridge_config}],
         arguments=[
+            '/imu/data@sensor_msgs/msg/Imu@ignition.msgs.IMU',
             '/odom@nav_msgs/msg/Odometry[gz.msgs.Odometry',
             '/cmd_vel@geometry_msgs/msg/Twist@ignition.msgs.Twist',
             '/tf@tf2_msgs/msg/TFMessage@ignition.msgs.Pose_V',
