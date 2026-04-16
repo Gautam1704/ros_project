@@ -55,12 +55,14 @@ def generate_launch_description():
         )]
     )
 
+    ekf_params_file = os.path.join(get_package_share_directory('ros_project'), 'config', 'ekf.yaml')
+
     ros_gz_bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
         parameters=[{'config_file': ros_gz_bridge_config}],
         arguments=[
-            '/imu/data@sensor_msgs/msg/Imu@ignition.msgs.IMU',
+            '/imu@sensor_msgs/msg/Imu@ignition.msgs.IMU',
             '/odom@nav_msgs/msg/Odometry[gz.msgs.Odometry',
             '/cmd_vel@geometry_msgs/msg/Twist@ignition.msgs.Twist',
             '/tf@tf2_msgs/msg/TFMessage@ignition.msgs.Pose_V',
@@ -69,12 +71,25 @@ def generate_launch_description():
 
 
         ],
+        remappings=[
+            ('/odom', '/odom_raw') # This sends Gazebo's /odom to EKF's input
+        ],
         output='screen'
     )
+
+    # ekf_node = Node(
+    #     package='robot_localization',
+    #     executable='ekf_node',
+    #     name='ekf_filter_node',
+    #     output='screen',
+    #     parameters=[ekf_params_file, {'use_sim_time': True}],
+    #     remappings=[('/odometry/filtered', '/odom')] # Clean filtered data
+    # )
 
     return LaunchDescription([
         gazebo,
         spawn_robot,
         ros_gz_bridge,
         robot_state_publisher,
+        # ekf_node
     ])

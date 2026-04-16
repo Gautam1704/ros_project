@@ -13,7 +13,7 @@
     <left_joint>Revolute_1</left_joint>
     <right_joint>Revolute_2</right_joint>
 
-    <wheel_separation>0.23</wheel_separation>
+    <wheel_separation>0.3395</wheel_separation>
     <wheel_radius>0.081</wheel_radius>
 
     <odom_topic>odom</odom_topic>
@@ -204,7 +204,7 @@
   <origin xyz="-0.001839 0.117589 0.034922" rpy="0 0 0"/>
   <parent link="base_footprint"/>
   <child link="wheel_urdf__1__1"/>
-  <axis xyz="0.0 -1.0 -0.0"/>
+  <axis xyz="0.0 1.0 -0.0"/>
 </joint>
 
 <joint name="Rigid 3" type="fixed">
@@ -232,16 +232,13 @@
 </joint>
 
 <gazebo>
-  <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
-    <render_engine>ogre2</render_engine>
-  </plugin>
+   <plugin filename="libignition-gazebo-sensors-system.so" name="ignition::gazebo::systems::Sensors">
+            <render_engine>ogre2</render_engine>
+    </plugin>
 </gazebo>
 
 <!-- 1. Global block — add Imu system alongside Sensors -->
 <gazebo>
-  <plugin filename="libgz-sim-sensors-system.so" name="gz::sim::systems::Sensors">
-    <render_engine>ogre2</render_engine>
-  </plugin>
   <!-- 👇 Add this line -->
   <plugin filename="libgz-sim-imu-system.so" name="gz::sim::systems::Imu"/>
 </gazebo>
@@ -252,7 +249,7 @@
     <always_on>true</always_on>
     <update_rate>100</update_rate>
     <visualize>true</visualize>
-    <topic>/imu/data</topic>
+    <topic>imu</topic>
     <gz_frame_id>imu_for_urdf_1</gz_frame_id>
     <imu>
       <angular_velocity>
@@ -311,4 +308,34 @@
   </sensor>
 </gazebo>
 
+  <gazebo reference="lidar_urdf_1">
+        <sensor name="gpu_lidar" type="gpu_lidar">
+            <pose>0 0 0 0 0 0</pose>
+            <topic>scan</topic>
+            <ignition_frame_id>lidar_urdf_1</ignition_frame_id>
+            <update_rate>20</update_rate>
+            <visualize>true</visualize>
+            <always_on>true</always_on>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples>360</samples>
+                        <resolution>1</resolution>
+                        <min_angle>-3.14159</min_angle>
+                        <max_angle>3.14159</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.3</min>
+                    <max>12.0</max>
+                    <resolution>0.01</resolution>
+                </range>
+                <noise>
+                    <type>gaussian</type>
+                    <mean>0.0</mean>
+                    <stddev>0.01</stddev>
+                </noise>
+            </ray>
+        </sensor>
+    </gazebo>
 </robot>
